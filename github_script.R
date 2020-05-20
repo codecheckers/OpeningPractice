@@ -7,8 +7,8 @@ library(tidyverse)
 library(repmis)
 library(caret)
 
-#### Load data from repo
-source_data("https://github.com/lexcomber/OpeningPractice/blob/master/Ch7sds.RData?raw=True")
+#### Load data
+load("Ch7sds.RData")
 
 #### Pre-processing
 # 1. Calculate percentages
@@ -52,25 +52,27 @@ lsoaFit=  train(Price~.,data=cbind(x_lsoa,y_lsoa),method="lm",trControl=ctrl)
 tmap_mode("view")
 p1 = tm_shape(oa)+tm_borders(col = "red")+
   tm_layout(title ="OA: n=1584", title.position = c("left", "bottom"))+
-  tm_view(basemaps = c('OpenStreetMap'), set.view = 11)
+  tm_view(basemaps = c('OpenStreetMap'), bbox = st_bbox(lsoa), set.view = 11)
 p2 =  tm_shape(lsoa)+tm_borders("black")+
   tm_layout(title ="LSOA: n=298", title.position = c("left", "bottom"))+
-  tm_view(basemaps = c('OpenStreetMap'), set.view = 11)
+  tm_view(basemaps = c('OpenStreetMap'), bbox = st_bbox(lsoa), set.view = 11)
 p3 = tm_shape(props_oa) + tm_dots(col='Price', palette = "GnBu", title = "Price (£1000s)", style = "kmeans")+
   tm_layout(title ="n=2211", title.position = c("left", "bottom"))+
-  tm_view(set.view = 11)
-tmap_arrange(p1,p2,p3)
+  tm_view(basemaps = c('Esri.WorldGrayCanvas'), bbox = st_bbox(lsoa), set.view = 11)
+tmap_arrange(p1,p2,p3, sync = TRUE)
 tmap_mode('plot')
 # 7. Tables of Coefficient estimates
 OA = round(coef(oaFit$finalModel), 3)
 LSOA = round(coef(lsoaFit$finalModel),3)
 Covariate = names(OA)
-data.frame(Covariate, OA = OA,LSOA=LSOA)
+df0 = data.frame(Covariate, OA = OA, LSOA = LSOA)
+capture.output(knitr::kable(df0, format = "markdown"), file = "table2.md")
 # 8. Tables of Variable importance
 df1 = round(data.frame(OA = varImp(oaFit)$importance), 3)
 Covariate = rownames(df1)
 df2 = data.frame(Covariate, df1, LSOA = round(varImp(lsoaFit)$importance, 3))
 names(df2)[2:3] = c("OA", "LSOA")
 df2
+capture.output(knitr::kable(df2, format = "markdown"), file = "table3.md")
 
 ### END ###

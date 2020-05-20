@@ -1,0 +1,24 @@
+---
+version: https://codecheck.org.uk/spec/config/1.0
+
+paper:
+  title: "Opening practice: supporting Reproducibility and Critical spatial data science"
+  authors:
+    - name: Chris Brunsdon
+      ORCID: 0000-0003-4254-1780
+    - name: Alexis Comber
+      ORCID: 0000-0002-3652-7846
+  reference: >
+    Under review.
+
+manifest:
+  - file: figure1.png
+    comment: "Housing data and different census areas scales, Output Area (OA) and Lower Super
+Output Area (LSOA)"
+  - file: table2.md
+    comment: "The model coefficient estimates for the individual input variables summarised over
+different scales of census area: Output Area (OA) and Lower Super Output Area (LSOA)"
+  - file: table3.md
+    comment: "The variable importance (expressed as a percentage), of the models constructed from
+data summarised over different scales of census area: Output Area (OA) and Lower Super
+Output Area (LSOA)"
