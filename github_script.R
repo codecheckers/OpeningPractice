@@ -5,6 +5,7 @@ library(sf)
 library(tmap)
 library(tidyverse)
 library(repmis)
+library(caret)
 
 #### Load data from repo
 source_data("https://github.com/lexcomber/OpeningPractice/blob/master/Ch7sds.RData?raw=True")
