@@ -1,4 +1,9 @@
 # Opening practice: supporting Reproducibility and Critical spatial data science
+
+[![CODECHECK](https://codecheck.org.uk/img/codeworks-badge.svg)](https://doi.org/10.5281/zenodo.3873153)
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3873153.svg)](https://doi.org/10.5281/zenodo.3873153)
+
 Chris Brunsdon<sup>1</sup> and Alexis Comber<sup>2</sup>
 
 <sup>1</sup> National Centre for Geocomputation, Maynooth University, Maynooth, Ireland Email: Christopher.Brunsdon@mu.i.e.

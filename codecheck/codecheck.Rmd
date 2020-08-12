@@ -146,13 +146,21 @@ rmarkdown::render("codecheck/codecheck.Rmd", output_dir = "codecheck")
 
 ```{r zenodo, include=FALSE, eval=FALSE}
 # these commands were used to upload the report and code to zenodo
-record = create_zenodo_record(zenodo)
-metadata = read_yaml("codecheck.yml")
-record = get_zenodo_record(metadata$report)
+library("zen4R")
+zenodo <- ZenodoManager$new(
+   token = zenodoToken, 
+   logger = "DEBUG"
+)
 
-codecheck:::set_zenodo_metadata(zenodo, record, metadata)
-codecheck:::set_zenodo_certificate(zenodo, record, "codecheck/codecheck.pdf")
+#record = create_zenodo_record(zenodo)
+#metadata = read_yaml("codecheck.yml")
+#record = get_zenodo_record(metadata$report)
+#codecheck:::set_zenodo_metadata(zenodo, record, metadata)
+#codecheck:::set_zenodo_certificate(zenodo, record, "codecheck/codecheck.pdf")
+
+record <- zenodo$getDepositionByConceptDOI("10.5281/zenodo.3873153")
+zenodo$uploadFile("codecheck.pdf", record$id)
 
 zip::zipr("OpeningPractice.zip", list.files("."))
-zenodo$uploadFile("OpeningPractice.zip", record)
+zenodo$uploadFile("OpeningPractice.zip", record$id)
 ```
