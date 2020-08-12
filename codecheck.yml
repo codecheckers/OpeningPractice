@@ -2,23 +2,29 @@
 version: https://codecheck.org.uk/spec/config/1.0
 
 paper:
-  title: "Opening practice: supporting Reproducibility and Critical spatial data science"
+  title: "Opening practice: supporting reproducibility and critical spatial data science "
   authors:
     - name: Chris Brunsdon
       ORCID: 0000-0003-4254-1780
     - name: Alexis Comber
       ORCID: 0000-0002-3652-7846
-  reference: >
-    Under review.
+  reference: https://doi.org/10.1007/s10109-020-00334-2
 
 manifest:
   - file: figure1.png
-    comment: "Housing data and different census areas scales, Output Area (OA) and Lower Super
-Output Area (LSOA)"
+    comment: "Figure 1: Housing data and different census areas scales ..."
   - file: table2.md
-    comment: "The model coefficient estimates for the individual input variables summarised over
-different scales of census area: Output Area (OA) and Lower Super Output Area (LSOA)"
+    comment: "Table 2: The model coefficient estimates for the individual input variables ..."
   - file: table3.md
-    comment: "The variable importance (expressed as a percentage), of the models constructed from
-data summarised over different scales of census area: Output Area (OA) and Lower Super
-Output Area (LSOA)"
+    comment: "Table 3: The variable importance (expressed as a percentage) ..."
+
+codechecker:
+  - name: Daniel Nüst
+    ORCID: 0000-0002-0024-5046
+
+summary: >
+  A small R script to render a map and two tables. Minor code adjustments were made, but reproduction of results (one figure, two tables) was successful.
+repository: https://github.com/codecheckers/OpeningPractice
+check_time: "2020-06-02"
+certificate: 2020-011
+report: https://doi.org/10.5281/zenodo.3873153

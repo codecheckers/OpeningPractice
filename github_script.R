@@ -29,6 +29,7 @@ properties$Northing =
   properties %>% st_coordinates() %>% .[,2]
 # 3. Intersect with OA and LSOA data 
 # and drop unwanted variables
+oa <- sf::st_make_valid(oa)
 props_oa = st_intersection(properties, oa) %>% 
   select(Price, Beds, gs_area,  u25, u45, u65, o65, unmplyd)
 props_lsoa = st_intersection(properties, lsoa) %>% 
