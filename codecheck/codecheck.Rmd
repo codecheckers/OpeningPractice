@@ -131,7 +131,7 @@ The whole script only takes a few moments to run on my computer.
 
 **How to cite this report**
 
-> Daniel Nüst. (2020, June 2). CODECHECK certificate 2020-011. Zenodo. http://doi.org/10.5281/zenodo.3873153
+> Daniel Nüst. (2020, June 2). CODECHECK certificate 2020-016. Zenodo. http://doi.org/10.5281/zenodo.3873153
 
 **Environment used to create the report** (not conduct the check)
 
@@ -158,7 +158,7 @@ zenodo <- ZenodoManager$new(
 #codecheck:::set_zenodo_metadata(zenodo, record, metadata)
 #codecheck:::set_zenodo_certificate(zenodo, record, "codecheck/codecheck.pdf")
 
-record <- zenodo$getDepositionByConceptDOI("10.5281/zenodo.3873153")
+record <- zenodo$getDepositionByConceptDOI("10.5281/zenodo.3981253")
 zenodo$uploadFile("codecheck.pdf", record$id)
 
 zip::zipr("OpeningPractice.zip", list.files("."))

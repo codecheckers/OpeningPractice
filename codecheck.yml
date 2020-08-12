@@ -26,5 +26,5 @@ summary: >
   A small R script to render a map and two tables. Minor code adjustments were made, but reproduction of results (one figure, two tables) was successful.
 repository: https://github.com/codecheckers/OpeningPractice
 check_time: "2020-06-02"
-certificate: 2020-011
-report: https://doi.org/10.5281/zenodo.3873153
+certificate: 2020-016
+report: https://doi.org/10.5281/zenodo.3981253
